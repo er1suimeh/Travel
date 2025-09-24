@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9CACFC84-8124-4235-843A-AA5D91D51DE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{2DDE2E9B-DD56-4D5C-86A1-5AB709DD8396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Domain", "src\core\Travel.Domain\Travel.Domain.csproj", "{11CEFD40-64B4-418C-A467-ED4C5B451CD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Application", "src\core\Travel.Application\Travel.Application.csproj", "{EC1BC844-C4E8-44B5-92FF-DDFB5283ED44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{0880EA1A-1FF8-4443-A095-99DBAC7754FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Data", "src\infrastructure\Travel.Data\Travel.Data.csproj", "{B375166A-9374-43CA-B7CD-FFEEC6112DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Shared", "src\infrastructure\Travel.Shared\Travel.Shared.csproj", "{5891DD22-266A-434F-94DC-80580C8C54D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{D6F6EAE1-90E9-42F6-8113-9805C5F7D73D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.WebApi", "src\presentation\Travel.WebApi\Travel.WebApi.csproj", "{6296B33F-06F4-414D-9372-86F536659D6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11CEFD40-64B4-418C-A467-ED4C5B451CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11CEFD40-64B4-418C-A467-ED4C5B451CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11CEFD40-64B4-418C-A467-ED4C5B451CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11CEFD40-64B4-418C-A467-ED4C5B451CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC1BC844-C4E8-44B5-92FF-DDFB5283ED44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1BC844-C4E8-44B5-92FF-DDFB5283ED44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1BC844-C4E8-44B5-92FF-DDFB5283ED44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1BC844-C4E8-44B5-92FF-DDFB5283ED44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B375166A-9374-43CA-B7CD-FFEEC6112DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B375166A-9374-43CA-B7CD-FFEEC6112DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B375166A-9374-43CA-B7CD-FFEEC6112DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B375166A-9374-43CA-B7CD-FFEEC6112DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5891DD22-266A-434F-94DC-80580C8C54D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5891DD22-266A-434F-94DC-80580C8C54D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5891DD22-266A-434F-94DC-80580C8C54D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5891DD22-266A-434F-94DC-80580C8C54D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6296B33F-06F4-414D-9372-86F536659D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6296B33F-06F4-414D-9372-86F536659D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6296B33F-06F4-414D-9372-86F536659D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6296B33F-06F4-414D-9372-86F536659D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2DDE2E9B-DD56-4D5C-86A1-5AB709DD8396} = {9CACFC84-8124-4235-843A-AA5D91D51DE9}
+		{11CEFD40-64B4-418C-A467-ED4C5B451CD9} = {2DDE2E9B-DD56-4D5C-86A1-5AB709DD8396}
+		{EC1BC844-C4E8-44B5-92FF-DDFB5283ED44} = {2DDE2E9B-DD56-4D5C-86A1-5AB709DD8396}
+		{0880EA1A-1FF8-4443-A095-99DBAC7754FF} = {9CACFC84-8124-4235-843A-AA5D91D51DE9}
+		{B375166A-9374-43CA-B7CD-FFEEC6112DBA} = {0880EA1A-1FF8-4443-A095-99DBAC7754FF}
+		{5891DD22-266A-434F-94DC-80580C8C54D2} = {0880EA1A-1FF8-4443-A095-99DBAC7754FF}
+		{D6F6EAE1-90E9-42F6-8113-9805C5F7D73D} = {9CACFC84-8124-4235-843A-AA5D91D51DE9}
+		{6296B33F-06F4-414D-9372-86F536659D6E} = {D6F6EAE1-90E9-42F6-8113-9805C5F7D73D}
+	EndGlobalSection
+EndGlobal

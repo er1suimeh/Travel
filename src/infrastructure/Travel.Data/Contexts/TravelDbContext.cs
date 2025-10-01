@@ -9,7 +9,7 @@ namespace Travel.Data.Contexts
           : base(options)
         {
         }
-        public DbSet<TourList> TourLists { get; set; }
-        public DbSet<TourPackage> TourPackages { get; set; }
+        public DbSet<TourList> TourLists { get; set; } = null!;
+        public DbSet<TourPackage> TourPackages { get; set; } = null!;
     }
 }

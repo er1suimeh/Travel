@@ -36,11 +36,7 @@
   </v-app-bar>
 </template>
 
-<script>
-export default {
-  name: "NavigationBar",
-};
-</script>
+<script setup></script>
 
 <style scoped>
 .menu {

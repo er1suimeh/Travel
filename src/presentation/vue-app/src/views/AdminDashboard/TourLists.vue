@@ -6,8 +6,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "TourLists",
-};
-</script>
+<script setup></script>

@@ -72,10 +72,10 @@
   </v-sheet>
 </template>
 
-<script>
-export default {
+<script setup>
+defineOptions({
   name: "AdminDashboard",
-};
+});
 </script>
 
 <style scoped>

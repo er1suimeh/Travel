@@ -6,8 +6,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "DefaultContent",
-};
-</script>
+<script setup></script>

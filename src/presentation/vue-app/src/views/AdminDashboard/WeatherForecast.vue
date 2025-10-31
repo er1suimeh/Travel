@@ -6,8 +6,4 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "WeatherForecast",
-};
-</script>
+<script setup></script>

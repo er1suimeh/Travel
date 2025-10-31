@@ -7,13 +7,7 @@
   </v-app>
 </template>
 
-<script>
+<script setup>
 import NavigationBar from "@/components/NavigationBar";
-export default {
-  name: "App",
-
-  components: {
-    NavigationBar,
-  },
-};
+defineOptions({ name: "App" });
 </script>

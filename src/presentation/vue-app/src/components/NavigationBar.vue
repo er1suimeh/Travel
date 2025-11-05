@@ -1,36 +1,36 @@
 <template>
-  <v-app-bar app color="primary" dark>
+  <v-app-bar color="primary" theme="dark" density="comfortable" elevation="2">
     <div class="d-flex align-center">
-      <router-link to="/" class="menu">
+      <router-link to="/" class="menu d-flex align-center">
         <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
+          alt="Vuetify Logo"
           width="40"
-      /></router-link>
+          class="mr-3"
+          cover
+        />
+      </router-link>
     </div>
 
-    <v-spacer></v-spacer>
+    <v-spacer />
 
-    <div>
-      <v-btn color="primary" outlined :to="{ path: '/' }">
-        <span class="menu">Home</span>
-      </v-btn>
+    <div class="d-flex align-center ga-2">
+      <v-btn variant="outlined" color="white" :to="{ path: '/' }">Home</v-btn>
 
-      <!-- using router-link of Vue Router -->
-      <router-link to="/about">
-        <v-btn color="primary" outlined>
-          <span class="menu">About</span>
-        </v-btn>
+      <router-link to="/about" class="menu">
+        <v-btn variant="outlined" color="white">About</v-btn>
       </router-link>
 
-      <v-btn color="primary" outlined :to="{ path: '/admin-dashboard' }">
-        <span class="menu">Dashboard</span>
+      <v-btn
+        variant="outlined"
+        color="white"
+        :to="{ path: '/admin-dashboard' }"
+      >
+        Dashboard
       </v-btn>
-      <v-btn color="primary" outlined :to="{ path: '/login' }">
-        <span class="menu">Login</span>
+
+      <v-btn variant="outlined" color="white" :to="{ path: '/login' }">
+        Login
       </v-btn>
     </div>
   </v-app-bar>

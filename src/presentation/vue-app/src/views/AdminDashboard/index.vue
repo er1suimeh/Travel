@@ -1,85 +1,100 @@
 <template>
-  <v-sheet
-    height="100vh"
-    class="overflow-hidden"
-    style="display: flex; flex-direction: row; justify-content: flex-start"
-  >
-    <v-navigation-drawer permanent expand-on-hover>
-      <v-list class="d-flex flex-column justify-center align-center">
-        <v-list-item class="px-2">
-          <v-list-item-avatar>
-            <v-img
-              src="https://randomuser.me/api/portraits/women/85.jpg"
-            ></v-img>
-          </v-list-item-avatar>
-        </v-list-item>
-
-        <v-list-item link>
-          <v-list-item-content>
-            <v-list-item-subtitle>email here</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
+  <v-sheet height="100vh" class="d-flex flex-row overflow-hidden">
+    <!-- Navigation Drawer -->
+    <v-navigation-drawer
+      permanent
+      expand-on-hover
+      color="surface"
+      class="elevation-2"
+    >
+      <!-- User Info -->
+      <v-list class="pa-4 d-flex flex-column align-center">
+        <v-avatar size="64">
+          <v-img src="https://randomuser.me/api/portraits/women/85.jpg" />
+        </v-avatar>
+        <div class="mt-3 text-caption text-center text-medium-emphasis">
+          email@example.com
+        </div>
       </v-list>
 
-      <v-divider></v-divider>
+      <v-divider class="my-2"></v-divider>
 
-      <v-list nav dense>
-        <router-link to="/admin-dashboard/" class="menu link">
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-view-dashboard-variant-outline</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Dashboard</v-list-item-title>
-          </v-list-item>
-        </router-link>
-        <router-link to="/admin-dashboard/tour-lists" class="menu link">
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-format-list-bulleted</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title> Tour Lists </v-list-item-title>
-          </v-list-item>
-        </router-link>
-        <router-link to="/admin-dashboard/tour-packages" class="menu link">
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-walk</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Tour Packages</v-list-item-title>
-          </v-list-item>
-        </router-link>
-        <router-link to="/admin-dashboard/weather-forecast" class="menu link">
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-weather-cloudy-alert</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Weather Forecast</v-list-item-title>
-          </v-list-item>
-        </router-link>
-        <router-link to="/logout" class="menu link">
-          <v-list-item link>
-            <v-list-item-icon>
-              <v-icon>mdi-logout-variant</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title> Log out </v-list-item-title>
+      <!-- Navigation Links -->
+      <v-list nav density="comfortable">
+        <router-link
+          v-for="link in links"
+          :key="link.to"
+          :to="link.to"
+          class="menu-link"
+        >
+          <v-list-item :value="link.title">
+            <template #prepend>
+              <v-icon>{{ link.icon }}</v-icon>
+            </template>
+            <v-list-item-title>{{ link.title }}</v-list-item-title>
           </v-list-item>
         </router-link>
       </v-list>
     </v-navigation-drawer>
-    <v-container>
+
+    <!-- Main Content -->
+    <v-main class="pa-6 bg-grey-lighten-4">
       <router-view />
-    </v-container>
+    </v-main>
   </v-sheet>
 </template>
 
 <script setup>
-defineOptions({
-  name: "AdminDashboard",
-});
+defineOptions({ name: "AdminDashboard" });
+
+// Navigation links
+const links = [
+  {
+    title: "Dashboard",
+    icon: "mdi-view-dashboard-variant-outline",
+    to: "/admin-dashboard/",
+  },
+  {
+    title: "Tour Lists",
+    icon: "mdi-format-list-bulleted",
+    to: "/admin-dashboard/tour-lists",
+  },
+  {
+    title: "Tour Packages",
+    icon: "mdi-walk",
+    to: "/admin-dashboard/tour-packages",
+  },
+  {
+    title: "Weather Forecast",
+    icon: "mdi-weather-cloudy-alert",
+    to: "/admin-dashboard/weather-forecast",
+  },
+  {
+    title: "Log out",
+    icon: "mdi-logout-variant",
+    to: "/logout",
+  },
+];
 </script>
 
 <style scoped>
-.link {
+.menu-link {
   text-decoration: none;
+  color: inherit;
+}
+
+.v-navigation-drawer {
+  width: 260px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.v-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.v-main {
+  flex: 1;
+  overflow-y: auto;
 }
 </style>

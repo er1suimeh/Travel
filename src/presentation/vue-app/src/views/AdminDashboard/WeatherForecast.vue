@@ -68,6 +68,8 @@ dayjs.extend(relativeTime);
 const weatherForecast = ref([]);
 const selectedCity = ref("Oslo");
 const loading = ref(false);
+const cities = ref([]);
+//const lists = ref([]); // holds your tours
 
 // Fetch weather data
 async function fetchWeatherForecast(city = "Oslo") {

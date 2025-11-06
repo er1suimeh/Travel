@@ -56,7 +56,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { getWeatherForecastV2Axios } from "@/api/weather-forecast-services";
@@ -64,12 +65,19 @@ import { getWeatherForecastV2Axios } from "@/api/weather-forecast-services";
 // Enable relative time formatting
 dayjs.extend(relativeTime);
 
+// Access Vuex store
+const store = useStore();
+
+// Getters and actions from Vuex
+const lists = computed(() => store.getters["tourModule/lists"]);
+const getTourListsAction = () =>
+  store.dispatch("tourModule/getTourListsAction");
+
 // Reactive state
 const weatherForecast = ref([]);
 const selectedCity = ref("Oslo");
 const loading = ref(false);
 const cities = ref([]);
-//const lists = ref([]); // holds your tours
 
 // Fetch weather data
 async function fetchWeatherForecast(city = "Oslo") {
@@ -122,5 +130,11 @@ onMounted(async () => {
   loading.value = true;
   await fetchWeatherForecast(selectedCity.value);
   loading.value = false;
+
+  // Fetch tours via Vuex
+  await getTourListsAction();
+
+  // Once Vuex updates, extract cities
+  cities.value = lists.value.map((pl) => pl.city);
 });
 </script>

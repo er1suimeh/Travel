@@ -14,6 +14,7 @@ namespace Travel.Application.Dtos.Tour
     public int Currency { get; set; }
     public string WhatToExpect { get; set; }
     public float Price { get; set; }
+    public string MapLocation { get; set; }
     public void Mapping(Profile profile)
     {
       profile.CreateMap<TourPackage, TourPackageDto>()

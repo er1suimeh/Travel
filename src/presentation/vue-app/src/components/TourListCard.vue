@@ -48,4 +48,14 @@ const store = useStore();
 // Getters and actions from Vuex
 const lists = computed(() => store.getters["tourModule/lists"]);
 const loading = computed(() => store.getters["tourModule/loading"]);
+
+function removeTourList(id) {
+  const confirmed = confirm(
+    "Are you sure you want to delete this tour list? This will also delete the packages permanently"
+  );
+
+  if (!confirmed) return;
+
+  store.dispatch("tourModule/removeTourListAction", id);
+}
 </script>

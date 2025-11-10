@@ -13,6 +13,9 @@ const mutations = {
     state.lists = state.lists.filter((t1) => t1.id !== id);
     state.packagesOfSelectedCity = [];
   },
+  [types.ADD_TOUR_LIST](state, tourList) {
+    state.lists.unshift(tourList);
+  },
 };
 
 export default mutations;

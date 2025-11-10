@@ -4,6 +4,7 @@
     <div class="default-content">
       <div style="margin-right: 4rem; margin-bottom: 4rem">
         <TourListCard />
+        <AddTourListForm />
       </div>
     </div>
   </div>
@@ -13,6 +14,7 @@
 import { useStore } from "vuex";
 import { onMounted } from "vue";
 import TourListCard from "@/components/TourListCard.vue";
+import AddTourListForm from "@/components/AddTourListForm.vue";
 
 // Access Vuex store
 const store = useStore();

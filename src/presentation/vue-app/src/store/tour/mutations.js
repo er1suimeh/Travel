@@ -27,6 +27,16 @@ const mutations = {
   [types.ADD_TOUR_PACKAGE](state, tourPackage) {
     state.packagesOfSelectedCity.unshift(tourPackage);
   },
+  [types.UPDATE_TOUR_PACKAGE](state, payload) {
+    const packageIndex = state.packagesOfSelectedCity.findIndex(
+      (p1) => p1.id === payload.id
+    );
+    state.packagesOfSelectedCity[packageIndex] = payload;
+    const listIndex = state.lists.findIndex(
+      (l) => l.id === state.packagesOfSelectedCity.listId
+    );
+    state.lists[listIndex] = state.packagesOfSelectedCity;
+  },
 };
 
 export default mutations;

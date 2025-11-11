@@ -26,7 +26,7 @@
                     Instant Confirmation
                   </span>
                 </div>
-
+                <UpdateTourPackageForm :bodyRequest="tourPackage" />
                 <v-icon
                   icon="mdi-delete-outline"
                   @click="removeTourPackage(tourPackage.id)"
@@ -50,6 +50,7 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "vuex";
+import UpdateTourPackageForm from "./UpdateTourPackageForm.vue";
 
 const store = useStore();
 

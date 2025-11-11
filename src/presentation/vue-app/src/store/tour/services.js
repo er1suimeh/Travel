@@ -19,3 +19,8 @@ export async function deleteTourPackageAxios(id) {
 export async function postTourPackageAxios(tourPackage) {
   return await api.post("v1.0/TourPackages", tourPackage);
 }
+
+export async function putTourPackageAxios(tourList) {
+  const cleanData = JSON.parse(JSON.stringify(tourList));
+  return await api.put(`v1.0/TourPackages/${cleanData.id}`, cleanData);
+}

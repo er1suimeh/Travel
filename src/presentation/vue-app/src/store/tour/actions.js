@@ -5,6 +5,7 @@ import {
   postTourListAxios,
   deleteTourPackageAxios,
   postTourPackageAxios,
+  putTourPackageAxios,
 } from "@/store/tour/services";
 
 // asynchronous action using Axios
@@ -78,5 +79,18 @@ export async function addTourPackageAction({ commit }, payload) {
     alert(e);
     console.log(e);
   }
+  commit(types.LOADING_TOUR, false);
+}
+
+export async function updateTourPackageAction({ commit }, payload) {
+  commit(types.LOADING_TOUR, true);
+  try {
+    await putTourPackageAxios(payload);
+    commit(types.UPDATE_TOUR_PACKAGE, payload);
+  } catch (e) {
+    alert(e);
+    console.log(e);
+  }
+
   commit(types.LOADING_TOUR, false);
 }

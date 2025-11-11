@@ -16,6 +16,9 @@ const mutations = {
   [types.ADD_TOUR_LIST](state, tourList) {
     state.lists.unshift(tourList);
   },
+  [types.GET_PACKAGES_OF_SELECTED_CITY](state, packages) {
+    state.packagesOfSelectedCity = packages;
+  },
 };
 
 export default mutations;

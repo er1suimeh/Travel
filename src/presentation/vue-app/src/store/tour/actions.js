@@ -47,3 +47,8 @@ export async function addTourListAction({ commit }, payload) {
 
   commit(types.LOADING_TOUR, false);
 }
+
+//non-asynchronous action
+export function getPackagesOfSelectedCityAction({ commit }, payload) {
+  commit(types.GET_PACKAGES_OF_SELECTED_CITY, payload);
+}

@@ -42,6 +42,9 @@
 import { computed } from "vue";
 import { useStore } from "vuex";
 
+//Declare emitted events
+const emit = defineEmits(["handleShowPackages"]);
+
 // Access Vuex store
 const store = useStore();
 
@@ -57,5 +60,10 @@ function removeTourList(id) {
   if (!confirmed) return;
 
   store.dispatch("tourModule/removeTourListAction", id);
+}
+
+function addToPackages(packages, listId) {
+  store.dispatch("tourModule/getPackagesOfSelectedCityAction", packages);
+  emit("handleShowPackages", true, listId);
 }
 </script>

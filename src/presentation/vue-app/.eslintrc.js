@@ -7,6 +7,7 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "plugin:prettier/recommended",
+    "plugin:vue/vue3-recommended",
   ],
   parserOptions: {
     parser: "@babel/eslint-parser",
@@ -18,5 +19,6 @@ module.exports = {
   },
   globals: {
     defineOptions: "readonly",
+    defineEmits: "readonly",
   },
 };

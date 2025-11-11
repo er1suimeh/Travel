@@ -24,6 +24,9 @@ const mutations = {
       (tp) => tp.id !== id
     );
   },
+  [types.ADD_TOUR_PACKAGE](state, tourPackage) {
+    state.packagesOfSelectedCity.unshift(tourPackage);
+  },
 };
 
 export default mutations;

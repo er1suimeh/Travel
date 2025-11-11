@@ -8,6 +8,7 @@
       </div>
       <div v-if="showPackages">
         <TourPackagesCard />
+        <AddTourPackageForm :tourListId="tourListId" />
       </div>
     </div>
   </div>
@@ -19,6 +20,7 @@ import { onMounted, ref } from "vue";
 import TourListCard from "@/components/TourListCard.vue";
 import AddTourListForm from "@/components/AddTourListForm.vue";
 import TourPackagesCard from "@/components/TourPackagesCard.vue";
+import AddTourPackageForm from "@/components/AddTourPackageForm.vue";
 
 // Access Vuex store
 const store = useStore();

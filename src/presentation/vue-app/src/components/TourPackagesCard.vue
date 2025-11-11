@@ -58,10 +58,10 @@ const packages = computed(
 );
 
 function removeTourPackage(packageId) {
-  if (
-    !confirm("Are you sure you want to permanently delete this tour package?")
-  )
-    return;
+  const confirmed = confirm(
+    "Are you sure you want to permanently delete this tour package?"
+  );
+  if (!confirmed) return;
 
   store.dispatch("tourModule/removeTourPackageAction", packageId);
 }

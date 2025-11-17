@@ -1,5 +1,6 @@
 import { createStore, createLogger } from "vuex";
 import tourModule from "./tour";
+import authModule from "./auth";
 
 const debug = process.env.NODE_ENV !== "production";
 
@@ -13,6 +14,7 @@ export default createStore({
   actions: {},
   modules: {
     tourModule,
+    authModule,
   },
   plugins,
 });

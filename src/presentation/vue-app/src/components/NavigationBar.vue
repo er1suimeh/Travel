@@ -22,6 +22,7 @@
       </router-link>
 
       <v-btn
+        v-if="isAuthenticated"
         variant="outlined"
         color="white"
         :to="{ path: '/admin-dashboard' }"
@@ -29,14 +30,25 @@
         Dashboard
       </v-btn>
 
-      <v-btn variant="outlined" color="white" :to="{ path: '/login' }">
+      <v-btn v-else variant="outlined" color="white" :to="{ path: '/login' }">
         Login
       </v-btn>
     </div>
   </v-app-bar>
 </template>
 
-<script setup></script>
+<script setup>
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
+const isAuthenticated = computed(
+  () => store.getters["authModule/isAuthenticated"]
+);
+
+//const email = computed(() => store.getters["authModule/email"]);
+</script>
 
 <style scoped>
 .menu {

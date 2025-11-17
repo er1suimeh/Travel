@@ -50,6 +50,13 @@ const routes = [
       requiresAuth: false,
     },
   },
+  {
+    path: "/logout",
+    redirect: () => {
+      localStorage.clear();
+      return "/login";
+    },
+  },
   // Vue Router 4 doesn’t use * for catch-all — use a parameter instead:
   {
     path: "/:pathMatch(.*)*",

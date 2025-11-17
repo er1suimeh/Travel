@@ -20,21 +20,18 @@
       <v-divider class="my-2"></v-divider>
 
       <!-- Navigation Links -->
-      <v-list nav density="comfortable">
-        <router-link
-          v-for="link in links"
-          :key="link.to"
-          :to="link.to"
-          class="menu-link"
-        >
-          <v-list-item :value="link.title">
-            <template #prepend>
-              <v-icon>{{ link.icon }}</v-icon>
-            </template>
-            <v-list-item-title>{{ link.title }}</v-list-item-title>
-          </v-list-item>
-        </router-link>
-      </v-list>
+      <v-list-item
+        v-for="link in links"
+        :key="link.to"
+        :title="link.title"
+        :value="link.title"
+        :to="link.to"
+        link
+      >
+        <template #prepend>
+          <v-icon>{{ link.icon }}</v-icon>
+        </template>
+      </v-list-item>
     </v-navigation-drawer>
 
     <!-- Main Content -->

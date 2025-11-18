@@ -1,4 +1,5 @@
 import store from "@/store";
+import { isTokenFromLocalStorageValid } from "./auth.service";
 
 export const authGuard = (to, from, next) => {
   console.log("authGuard init...");
@@ -8,7 +9,11 @@ export const authGuard = (to, from, next) => {
     if (store.getters["authModule/isAuthenticated"]) {
       next();
       return;
+    } else if (isTokenFromLocalStorageValid()) {
+      next();
+      return;
     }
+
     next("/login");
   }
 

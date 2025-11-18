@@ -13,7 +13,7 @@
           <v-img src="https://randomuser.me/api/portraits/women/85.jpg" />
         </v-avatar>
         <div class="mt-3 text-caption text-center text-medium-emphasis">
-          email@example.com
+          {{ email }}
         </div>
       </v-list>
 
@@ -44,6 +44,11 @@
 <script setup>
 defineOptions({ name: "AdminDashboard" });
 
+import { onMounted, computed } from "vue";
+import { useStore } from "vuex";
+
+const store = useStore();
+
 // Navigation links
 const links = [
   {
@@ -72,6 +77,22 @@ const links = [
     to: "/logout",
   },
 ];
+
+// --- actions ---
+const useLocalStorageTokenToSignInAction = () =>
+  store.dispatch("authModule/useLocalStorageTokenToSignInAction");
+
+// --- getters ---
+/*const isAuthenticated = computed(() =>
+  store.getters["authModule/isAuthenticated"]
+);*/
+
+const email = computed(() => store.getters["authModule/email"]);
+
+// --- lifecycle ---
+onMounted(() => {
+  useLocalStorageTokenToSignInAction();
+});
 </script>
 
 <style scoped>

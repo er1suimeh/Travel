@@ -3,6 +3,7 @@ import HomeView from "@/views/Main/HomeView.vue";
 import TourLists from "@/views/AdminDashboard/TourLists.vue";
 import TourPackages from "@/views/AdminDashboard/TourPackages.vue";
 import { authGuard } from "@/auth/auth.guard";
+import { isTokenFromLocalStorageValid } from "@/auth/auth.service";
 
 const routes = [
   {
@@ -46,6 +47,22 @@ const routes = [
   {
     path: "/login",
     component: () => import("@/auth/views/Login.vue"),
+    meta: {
+      requiresAuth: false,
+    },
+    beforeEnter: (to, from, next) => {
+      const valid = isTokenFromLocalStorageValid();
+      console.log(":::VALID:::", valid);
+      if (valid) {
+        next("/continue-as");
+      } else {
+        next();
+      }
+    },
+  },
+  {
+    path: "/continue-as",
+    component: () => import("@/auth/views/ContinueAs.vue"),
     meta: {
       requiresAuth: false,
     },

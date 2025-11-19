@@ -23,6 +23,9 @@
                   <v-text-field
                     label="City"
                     v-model="bodyRequest.city"
+                    @blur="touchCity"
+                    @input="touchCity"
+                    :error-messages="cityErrors"
                     required
                   />
                 </v-col>
@@ -32,6 +35,9 @@
                     :items="countryList"
                     label="Country"
                     v-model="bodyRequest.country"
+                    @blur="touchCountry"
+                    @input="touchCountry"
+                    :error-messages="countryErrors"
                     required
                   />
                 </v-col>
@@ -40,6 +46,9 @@
                   <v-textarea
                     label="About"
                     v-model="bodyRequest.about"
+                    @blur="touchAbout"
+                    @input="touchAbout"
+                    :error-messages="aboutErrors"
                     required
                   />
                 </v-col>
@@ -62,9 +71,11 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
+import { reactive, ref, computed } from "vue";
 import { useStore } from "vuex";
 import { getCountryList } from "@/helpers/collections";
+import validators from "@/validators";
+import useVuelidate from "@vuelidate/core";
 
 // --- Vuex Store ---
 const store = useStore();
@@ -78,8 +89,21 @@ const bodyRequest = reactive({
 });
 const countryList = getCountryList();
 
+const rules = {
+  bodyRequest: {
+    city: validators.city,
+    country: validators.country,
+    about: validators.about,
+  },
+};
+
+const v$ = useVuelidate(rules, { bodyRequest });
+
 // --- Methods ---
 async function handleSubmit() {
+  v$.value.$touch();
+  if (v$.value.$invalid) return;
+
   try {
     await store.dispatch("tourModule/addTourListAction", { ...bodyRequest });
     //alert("Tour list added successfully!");
@@ -94,4 +118,35 @@ async function handleSubmit() {
     //alert("Failed to add tour list.");
   }
 }
+
+const touchCity = () => v$.value.bodyRequest.city.$touch();
+const touchCountry = () => v$.value.bodyRequest.country.$touch();
+const touchAbout = () => v$.value.bodyRequest.about.$touch();
+
+const cityErrors = computed(() => {
+  const field = v$.value.bodyRequest.city;
+  if (!field.$dirty) return [];
+
+  const errors = [];
+  if (field.required.$invalid) errors.push("City is required");
+  if (field.maxLength.$invalid) errors.push("Max length is 90 characters");
+  return errors;
+});
+
+const countryErrors = computed(() => {
+  const field = v$.value.bodyRequest.country;
+  if (!field.$dirty) return [];
+
+  const errors = [];
+  if (field.required.$invalid) errors.push("Country is required");
+  return errors;
+});
+const aboutErrors = computed(() => {
+  const field = v$.value.bodyRequest.about;
+  if (!field.$dirty) return [];
+
+  const errors = [];
+  if (field.required.$invalid) errors.push("About is required");
+  return errors;
+});
 </script>

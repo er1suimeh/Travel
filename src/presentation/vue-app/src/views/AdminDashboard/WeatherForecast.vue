@@ -5,7 +5,7 @@
     </div>
 
     <!-- Loading spinner -->
-    <div class="v-picker--full-width d-flex justify-center" v-if="loading">
+    <div v-if="loading" class="v-picker--full-width d-flex justify-center">
       <v-progress-circular :size="70" :width="7" color="purple" indeterminate />
     </div>
 

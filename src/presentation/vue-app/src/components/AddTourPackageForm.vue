@@ -2,8 +2,8 @@
   <v-row justify="center">
     <v-dialog v-model="dialog" persistent max-width="600">
       <!-- Modern activator slot -->
-      <template #activator="{ props }">
-        <v-btn class="mt-4" rounded="xl" color="pink" v-bind="props">
+      <template #activator="{ props: btnProps }">
+        <v-btn class="mt-4" rounded="xl" color="pink" v-bind="btnProps">
           <v-icon start>mdi-plus</v-icon>
           Add New Tour Package
         </v-btn>
@@ -19,13 +19,13 @@
             <v-container>
               <v-row dense>
                 <v-col cols="12">
-                  <v-text-field label="Name" v-model="form.name" required />
+                  <v-text-field v-model="form.name" label="Name" required />
                 </v-col>
 
                 <v-col cols="12">
                   <v-textarea
-                    label="What to Expect"
                     v-model="form.whatToExpect"
+                    label="What to Expect"
                     auto-grow
                     required
                   />
@@ -33,16 +33,16 @@
 
                 <v-col cols="12">
                   <v-text-field
-                    label="Map Location"
                     v-model="form.mapLocation"
+                    label="Map Location"
                     required
                   />
                 </v-col>
 
                 <v-col cols="12" sm="4">
                   <v-text-field
-                    label="Price (USD)"
                     v-model.number="form.price"
+                    label="Price (USD)"
                     type="number"
                     min="1"
                     required
@@ -51,16 +51,16 @@
 
                 <v-col cols="12" sm="4">
                   <v-select
-                    :items="durations"
                     v-model="form.duration"
+                    :items="durations"
                     label="Duration (hours)"
                   />
                 </v-col>
 
                 <v-col cols="12" sm="4">
                   <v-switch
-                    label="Instant Confirmation"
                     v-model="form.instantConfirmation"
+                    label="Instant Confirmation"
                     color="primary"
                   />
                 </v-col>
@@ -89,7 +89,10 @@ import { useStore } from "vuex";
 
 // Props
 const props = defineProps({
-  tourListId: Number,
+  tourListId: {
+    type: Number,
+    required: true,
+  },
 });
 
 // Store

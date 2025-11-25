@@ -23,22 +23,22 @@
                 <v-row>
                   <v-col cols="12">
                     <v-text-field
-                      label="E-mail"
                       v-model="login.email"
+                      label="E-mail"
+                      :error-messages="emailErrors"
                       @blur="touchEmail"
                       @input="touchEmail"
-                      :error-messages="emailErrors"
                     />
                   </v-col>
 
                   <v-col cols="12">
                     <v-text-field
+                      v-model="login.password"
                       type="password"
                       label="Password"
-                      v-model="login.password"
+                      :error-messages="passwordErrors"
                       @blur="touchPassword"
                       @input="touchPassword"
-                      :error-messages="passwordErrors"
                     />
                   </v-col>
 

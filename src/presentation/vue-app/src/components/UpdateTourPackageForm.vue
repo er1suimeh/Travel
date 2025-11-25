@@ -20,32 +20,32 @@
               <v-row>
                 <v-col cols="12">
                   <v-text-field
-                    label="Name"
                     v-model="localBody.name"
+                    label="Name"
                     required
                   />
                 </v-col>
 
                 <v-col cols="12">
                   <v-textarea
-                    label="What to expect"
                     v-model="localBody.whatToExpect"
+                    label="What to expect"
                     required
                   />
                 </v-col>
 
                 <v-col cols="12">
                   <v-text-field
-                    label="Map Location"
                     v-model="localBody.mapLocation"
+                    label="Map Location"
                     required
                   />
                 </v-col>
 
                 <v-col cols="12" sm="4">
                   <v-text-field
-                    label="Price in USD"
                     v-model="localBody.price"
+                    label="Price in USD"
                     type="number"
                     required
                   />
@@ -53,16 +53,16 @@
 
                 <v-col cols="12" sm="4">
                   <v-autocomplete
-                    :items="durations"
                     v-model="localBody.duration"
+                    :items="durations"
                     label="Duration (hrs)"
                   />
                 </v-col>
 
                 <v-col cols="12" sm="4">
                   <v-switch
-                    label="Instant confirmation"
                     v-model="localBody.instantConfirmation"
+                    label="Instant confirmation"
                   />
                 </v-col>
               </v-row>

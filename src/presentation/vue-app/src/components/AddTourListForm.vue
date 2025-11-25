@@ -21,35 +21,35 @@
               <v-row>
                 <v-col cols="12" sm="6">
                   <v-text-field
-                    label="City"
                     v-model="bodyRequest.city"
-                    @blur="touchCity"
-                    @input="touchCity"
+                    label="City"
                     :error-messages="cityErrors"
                     required
+                    @blur="touchCity"
+                    @input="touchCity"
                   />
                 </v-col>
 
                 <v-col cols="12" sm="6">
                   <v-autocomplete
-                    :items="countryList"
-                    label="Country"
                     v-model="bodyRequest.country"
-                    @blur="touchCountry"
-                    @input="touchCountry"
+                    label="Country"
+                    :items="countryList"
                     :error-messages="countryErrors"
                     required
+                    @blur="touchCountry"
+                    @input="touchCountry"
                   />
                 </v-col>
 
                 <v-col cols="12">
                   <v-textarea
-                    label="About"
                     v-model="bodyRequest.about"
-                    @blur="touchAbout"
-                    @input="touchAbout"
+                    label="About"
                     :error-messages="aboutErrors"
                     required
+                    @blur="touchAbout"
+                    @input="touchAbout"
                   />
                 </v-col>
               </v-row>

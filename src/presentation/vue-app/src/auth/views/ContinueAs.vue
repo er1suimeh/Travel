@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="email">
+  <div v-if="email" class="container">
     <div class="text-h4 my-5">Do you like to continue as {{ email }}? 🔒</div>
 
     <v-btn color="primary" class="mr-4" @click="onSubmit">Yes</v-btn>

@@ -1,4 +1,5 @@
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Travel.Application.Common.Exceptions;
@@ -18,7 +19,7 @@ namespace Travel.Application.TourPackages.Commands.UpdateTourPackageDetail
     public int Duration { get; set; }
     public bool InstantConfirmation { get; set; }
     public Currency Currency { get; set; }
-  }
+    }
 
   public class UpdateTourPackageDetailCommandHandler : IRequestHandler<UpdateTourPackageDetailCommand>
   {
@@ -36,13 +37,25 @@ namespace Travel.Application.TourPackages.Commands.UpdateTourPackageDetail
       {
         throw new NotFoundException(nameof(TourPackage), request.Id);
       }
-      entity.ListId = request.ListId;
-      entity.WhatToExpect = request.WhatToExpect;
-      entity.MapLocation = request.MapLocation;
-      entity.Price = request.Price;
-      entity.Duration = request.Duration;
+
+      if (request.WhatToExpect != null)
+        entity.WhatToExpect = request.WhatToExpect;
+
+      if (request.MapLocation != null)
+        entity.MapLocation = request.MapLocation;
+
+      if (request.Price != 0)
+        entity.Price = (float)request.Price;
+
+      if (request.Duration != 0)
+        entity.Duration = request.Duration;
+
+      // bool cannot be null, so don't condition it
       entity.InstantConfirmation = request.InstantConfirmation;
-      entity.Currency = request.Currency;
+
+      // currency: only update if sent
+      if (request.Currency != 0)
+        entity.Currency = (Domain.Enums.Currency)request.Currency;
 
       await _context.SaveChangesAsync(cancellationToken);
 

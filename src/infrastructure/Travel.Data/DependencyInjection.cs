@@ -13,7 +13,7 @@ namespace Travel.Data
    
 
       services.AddDbContext<ApplicationDbContext>(options => options
-        .UseSqlite(config.GetConnectionString("DefaultConnection")));
+        .UseSqlServer(config.GetConnectionString("DefaultConnectionUsingDocker")));
 
       services.AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 

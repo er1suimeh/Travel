@@ -24,8 +24,8 @@ namespace Travel.Application.TourPackages.Commands.UpdateTourPackageDetail
         .NotEmpty().WithMessage("Price is required");
       RuleFor(v => v.Duration)
         .NotEmpty().WithMessage("Duration is required");
-      RuleFor(v => v.InstantConfirmation)
-        .NotEmpty().WithMessage("InstantConfirmation is required");
+      //RuleFor(v => v.InstantConfirmation)
+      //  .NotEmpty().WithMessage("InstantConfirmation is required");
       RuleFor(v => v.Currency)
         .NotEmpty().WithMessage("Currency is required");
     }

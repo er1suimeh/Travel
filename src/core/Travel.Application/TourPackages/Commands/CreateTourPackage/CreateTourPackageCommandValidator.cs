@@ -25,8 +25,8 @@ namespace Travel.Application.TourPackages.Commands.CreateTourPackage
 
     public async Task<bool> BeUniqueName(string name, CancellationToken cancellationToken)
     {
-      return await _context.TourPackages
-        .AnyAsync(l => l.Name != name);
+      return !await _context.TourPackages
+          .AnyAsync(l => l.Name == name, cancellationToken);
     }
   }
 }
